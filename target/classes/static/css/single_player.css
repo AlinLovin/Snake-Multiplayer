@@ -1,0 +1,56 @@
+body {
+    background-color: #e6ffee;
+}
+
+#container {
+    outline: 1px solid black;
+    position: relative;
+    width: 340px;
+    justify-content: center;
+    margin: auto;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(17, 20px);
+    grid-template-rows: repeat(15, 20px);
+}
+
+.tail {
+    position: absolute;
+    height: 20px;
+    width: 20px;
+}
+
+#state {
+    text-align: center;
+}
+
+#record, #score {
+    display: inline-block;
+    margin: 10px;
+}
+
+#btn {
+    display: none;
+    width: 70px;
+    height: 50px;
+    justify-content: center;
+    margin: auto;
+    background-color: #ccd9ff;
+    border: 1px solid;
+    border-radius: 10px;
+}
+
+#candy {
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    background-color: blue;
+    border-radius: 50%;
+}
+
+p, h1 {
+    text-align: center;
+    font-size: 40px;
+}

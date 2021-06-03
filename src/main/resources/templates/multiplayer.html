@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.tymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home - Snake Multiplayer</title>
+    <script type="text/javascript" src="/js/generates_code.js"></script>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+</head>
+<body>
+    <div class="container text-center">
+        <div>
+            <h1>Snake Multiplayer</h1>
+        </div>
+        <button class="btn btn-primary" onclick="generate()" >Generates Code</button>
+        <div id="code"></div>
+    </div>
+
+    <form th:action="@{/process_play_mp}">
+        <div class="container text-center">
+            <div>
+                <label class="col-form-label col-4">Enter the code to play:</label>
+                <input type="number" class="form-control" th:name="code" />
+            </div>
+            <button type="submit" class="btn btn-primary">Play</button>
+        </div>
+    </form>
+</body>
+</html>
