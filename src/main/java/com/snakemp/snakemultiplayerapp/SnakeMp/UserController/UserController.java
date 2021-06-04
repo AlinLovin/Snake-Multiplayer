@@ -25,7 +25,7 @@ public class UserController {
         return "signup_form";
     }
 
-    @PostMapping("process_register")
+    @PostMapping("/user/register")
     public String processRegistration(User user) {
         try {
             BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
@@ -33,30 +33,9 @@ public class UserController {
             user.setPassword(encodedPassword);
             repo.save(user);
         } catch (Exception e) {
-            System.out.println("Duplicate email !!!");
+            System.out.println("Duplicate email!!!");
             return "redirect:/signup";
         }
         return "register_success";
-    }
-
-    @GetMapping("type_game")
-    public String selectTypeGame() {
-        return "type_game";
-    }
-
-    @GetMapping("/single_player")
-    public String singlePlayerGame() {
-        return "single_player";
-    }
-
-    @GetMapping("/multiplayer")
-    public String multiplayer() {
-        return "multiplayer";
-    }
-
-    @RequestMapping("/process_play_mp")
-    public String playMp(@RequestParam(value = "code", required = false) String code, Model model) {
-        System.out.println(code);
-        return "play_mp";
     }
 }
