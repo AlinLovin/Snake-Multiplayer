@@ -5,24 +5,36 @@
     <title>Home - Snake Multiplayer</title>
     <script type="text/javascript" src="/js/generates_code.js"></script>
     <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+    <style>
+        input[type=text] {
+            width: 350px;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+    </style>
 </head>
 <body>
-    <div class="container text-center">
-        <div>
-            <h1>Snake Multiplayer</h1>
-        </div>
-        <button class="btn btn-primary" onclick="generate()" >Generates Code</button>
-        <div id="code"></div>
-    </div>
+    <h1>Snake Multiplayer</h1>
+
+<!--    <input type="text" id="UUID" name="stream" th:value="${UUIDCode}" />-->
+<!--    <button id="btn" onclick="CopyCodeGame()">Copy Code</button>-->
 
     <form th:action="@{/game/multiplayer/play_mp}">
         <div class="container text-center">
-            <div>
-                <label class="col-form-label col-4">Enter the code to play:</label>
-                <input type="number" class="form-control" th:name="code" />
-            </div>
+            <input type="text" id="UUID" name="stream" th:value="${UUIDCode}" disabled/>
             <button type="submit" class="btn btn-primary">Play</button>
         </div>
     </form>
+    <button id="btn" onclick="CopyCodeGame()">Copy Code</button>
+
+    <script>
+        function CopyCodeGame() {
+            let copyCode = document.getElementById("UUID");
+            copyCode.select();
+            copyCode.setSelectionRange(0, 50);
+            document.execCommand("copy");
+        }
+    </script>
 </body>
 </html>
