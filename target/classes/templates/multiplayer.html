@@ -16,17 +16,18 @@
 </head>
 <body>
     <h1>Snake Multiplayer</h1>
-
-<!--    <input type="text" id="UUID" name="stream" th:value="${UUIDCode}" />-->
-<!--    <button id="btn" onclick="CopyCodeGame()">Copy Code</button>-->
+    <input type="text" id="UUID" name="stream" th:value="${UUIDCode}" />
+    <button class="btn btn-primary" id="btn" onclick="CopyCodeGame()">Copy Code</button>
 
     <form th:action="@{/game/multiplayer/play_mp}">
         <div class="container text-center">
-            <input type="text" id="UUID" name="stream" th:value="${UUIDCode}" disabled/>
+
+            <p>Enter the code to play or insert the code from friend</p>
+            <input type="text" class="form-control" th:name="code" />
+
             <button type="submit" class="btn btn-primary">Play</button>
         </div>
     </form>
-    <button id="btn" onclick="CopyCodeGame()">Copy Code</button>
 
     <script>
         function CopyCodeGame() {

@@ -3,11 +3,14 @@ package com.snakemp.snakemultiplayerapp.SnakeMp.Game;
 import com.snakemp.snakemultiplayerapp.SnakeMp.User.User;
 import com.snakemp.snakemultiplayerapp.SnakeMp.UserRepository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.util.HtmlUtils;
 
 import java.util.UUID;
 
@@ -35,9 +38,9 @@ public class Game {
 
     @GetMapping("/game/multiplayer")
     public String multiplayer(Model model) {
-        String UUID = UUIDCode();
-        System.out.println(UUID);
-        model.addAttribute("UUIDCode", UUID);
+        String myUUID = UUID.randomUUID().toString();
+        System.out.println(myUUID);
+        model.addAttribute("UUIDCode", myUUID);
         return "multiplayer";
     }
 
@@ -46,5 +49,4 @@ public class Game {
         System.out.println(code);
         return "play_mp";
     }
-
 }

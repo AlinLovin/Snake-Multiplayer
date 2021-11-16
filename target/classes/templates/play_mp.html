@@ -4,9 +4,25 @@
     <meta charset="UTF-8">
     <title>Single Player Game</title>
     <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/single_player.css"/>
+    <script type="text/javascript" src="/js/multiplayer.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
     <h1>Multiplayer Game</h1>
+    <div id="state">
+        <div id="score">Score: 0</div>
+        <div id="record">Record: 0</div>
+    </div>
+    <div id="container">
+        <div id="snakeTail"></div>
+        <div id="0"></div>
+        <div id="candy"></div>
+        <div class="grid" id="table"></div>
+    </div>
+    <p id="gameState"></p>
+    <button id="btn" onclick="play()">Play again</button>
+    <button id="redBox" onclick="moveBox()">red box</button>
 
 </body>
 </html>
